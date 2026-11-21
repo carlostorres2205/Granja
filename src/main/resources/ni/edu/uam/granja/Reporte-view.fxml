@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.granja.Controller.ReporteController" spacing="20">
+    <VBox spacing="12" styleClass="info-card">
+        <Label text="Período del reporte" styleClass="section-title"/>
+        <HBox spacing="12">
+            <VBox spacing="6"><Label text="Desde"/><DatePicker fx:id="desde"/></VBox>
+            <VBox spacing="6"><Label text="Hasta"/><DatePicker fx:id="hasta"/></VBox>
+            <Button text="Consultar" onAction="#actualizar" styleClass="primary-button"/>
+            <Button text="Guardar CSV" onAction="#guardarCsv" styleClass="secondary-button"/>
+        </HBox>
+        <Label fx:id="resumen" wrapText="true" styleClass="section-title"/>
+        <Label fx:id="conteos" wrapText="true" styleClass="muted"/>
+        <Label fx:id="mensaje" wrapText="true" styleClass="error"/>
+    </VBox>
+    <VBox spacing="10" styleClass="info-card">
+        <Label text="Detalle" styleClass="section-title"/>
+        <TabPane fx:id="pestañas" prefHeight="520"/>
+        <Label text="El consumo de medicamentos se obtiene de las salidas de inventario; los eventos sanitarios se muestran en la pestaña Salud." wrapText="true" styleClass="muted"/>
+    </VBox>
+</VBox>

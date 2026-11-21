@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.granja.Controller.OrganizacionController" spacing="20">
+    <VBox spacing="12" styleClass="info-card">
+        <Label text="Crear lote" styleClass="section-title"/>
+        <TextField fx:id="nombreLote" promptText="Ej. Engorde de otoño"/>
+        <ComboBox fx:id="proposito" maxWidth="Infinity"/>
+        <Button text="Guardar lote" onAction="#crearLote" styleClass="primary-button"/>
+    </VBox>
+    <VBox spacing="12" styleClass="info-card">
+        <Label text="Crear potrero o corral" styleClass="section-title"/>
+        <TextField fx:id="nombreUbicacion" promptText="Nombre de la ubicación"/>
+        <ComboBox fx:id="tipoUbicacion" maxWidth="Infinity"/>
+        <TextField fx:id="capacidad" promptText="Capacidad de animales (opcional)"/>
+        <Button text="Guardar ubicación" onAction="#crearUbicacion" styleClass="primary-button"/>
+    </VBox>
+    <VBox spacing="12" styleClass="info-card">
+        <Label text="Asignar animal" styleClass="section-title"/>
+        <Label text="La capacidad es informativa; comprueba el espacio antes de mover animales." wrapText="true" styleClass="muted"/>
+        <ComboBox fx:id="animal" maxWidth="Infinity" promptText="Selecciona un animal activo"/>
+        <ComboBox fx:id="lote" maxWidth="Infinity" promptText="Selecciona un lote"/>
+        <ComboBox fx:id="ubicacion" maxWidth="Infinity" promptText="Selecciona una ubicación"/>
+        <Button text="Guardar asignación" onAction="#asignar" styleClass="primary-button"/>
+        <Label fx:id="mensaje" wrapText="true" styleClass="muted"/>
+    </VBox>
+    <VBox spacing="12" styleClass="info-card">
+        <Label text="Ubicación actual del ganado" styleClass="section-title"/>
+        <Button text="Actualizar lista" onAction="#actualizar" styleClass="secondary-button"/>
+        <TableView fx:id="tabla" prefHeight="280">
+            <columns>
+                <TableColumn fx:id="colArete" text="Arete" prefWidth="120"/>
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="120"/>
+                <TableColumn fx:id="colLote" text="Lote" prefWidth="180"/>
+                <TableColumn fx:id="colUbicacion" text="Potrero / corral" prefWidth="180"/>
+            </columns>
+        </TableView>
+    </VBox>
+</VBox>

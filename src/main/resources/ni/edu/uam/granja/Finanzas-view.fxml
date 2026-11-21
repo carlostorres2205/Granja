@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.granja.Controller.FinanzasController" spacing="20">
+    <VBox spacing="10" styleClass="info-card">
+        <Label text="Registrar venta de ganado" styleClass="section-title"/>
+        <Label text="Fecha de venta *"/><DatePicker fx:id="fechaVenta"/>
+        <Label text="Comprador (opcional)"/><ComboBox fx:id="comprador" maxWidth="Infinity" promptText="Selecciona un comprador"/>
+        <HBox spacing="10">
+            <TextField fx:id="nombreComprador" promptText="Nuevo comprador" HBox.hgrow="ALWAYS"/>
+            <Button text="Crear comprador" onAction="#crearComprador" styleClass="secondary-button"/>
+        </HBox>
+        <Label text="Animal *"/><ComboBox fx:id="animal" maxWidth="Infinity" promptText="Selecciona un animal activo"/>
+        <HBox spacing="10">
+            <TextField fx:id="pesoVenta" promptText="Peso de venta en kg (opcional)" HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="precio" promptText="Precio de este animal *" HBox.hgrow="ALWAYS"/>
+        </HBox>
+        <Button text="Agregar animal a la venta" onAction="#agregarAnimal" styleClass="secondary-button"/>
+        <TableView fx:id="tablaVenta" prefHeight="150">
+            <placeholder><Label text="Agrega al menos un animal."/></placeholder>
+            <columns>
+                <TableColumn fx:id="colAreteVenta" text="Arete" prefWidth="140"/>
+                <TableColumn fx:id="colPesoVenta" text="Peso kg" prefWidth="130"/>
+                <TableColumn fx:id="colPrecioVenta" text="Precio" prefWidth="150"/>
+            </columns>
+        </TableView>
+        <Button text="Quitar animal seleccionado" onAction="#quitarAnimal" styleClass="secondary-button"/>
+        <Label fx:id="totalVenta" text="Total de la venta: 0" styleClass="section-title"/>
+        <Button text="Guardar venta" onAction="#guardarVenta" styleClass="primary-button"/>
+    </VBox>
+    <VBox spacing="10" styleClass="info-card">
+        <Label text="Registrar otro ingreso o gasto" styleClass="section-title"/>
+        <Label text="Las ventas de ganado se registran automáticamente arriba." wrapText="true" styleClass="muted"/>
+        <DatePicker fx:id="fechaMovimiento"/>
+        <ComboBox fx:id="tipoMovimiento" maxWidth="Infinity"/>
+        <ComboBox fx:id="categoria" maxWidth="Infinity"/>
+        <TextField fx:id="concepto" promptText="Concepto *"/>
+        <TextField fx:id="importe" promptText="Importe *"/>
+        <Button text="Guardar movimiento" onAction="#guardarMovimiento" styleClass="primary-button"/>
+        <Button text="Corregir movimiento seleccionado" onAction="#corregirMovimiento" styleClass="secondary-button"/>
+        <Label text="Selecciona un movimiento manual en la tabla de abajo para cargarlo en el formulario." wrapText="true" styleClass="muted"/>
+    </VBox>
+    <VBox spacing="10" styleClass="info-card">
+        <Label text="Movimientos financieros" styleClass="section-title"/>
+        <HBox spacing="12"><DatePicker fx:id="desde"/><DatePicker fx:id="hasta"/>
+            <Button text="Consultar" onAction="#actualizarMovimientos" styleClass="secondary-button"/></HBox>
+        <Label fx:id="resumen" wrapText="true" styleClass="muted"/>
+        <TableView fx:id="tablaMovimientos" prefHeight="300">
+            <columns>
+                <TableColumn fx:id="colFecha" text="Fecha" prefWidth="100"/>
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="90"/>
+                <TableColumn fx:id="colCategoria" text="Categoría" prefWidth="135"/>
+                <TableColumn fx:id="colConcepto" text="Concepto" prefWidth="250"/>
+                <TableColumn fx:id="colImporte" text="Importe" prefWidth="120"/>
+            </columns>
+        </TableView>
+        <Label text="Ventas guardadas" styleClass="section-title"/>
+        <TableView fx:id="tablaVentas" prefHeight="220">
+            <columns>
+                <TableColumn fx:id="colVentaId" text="N.º" prefWidth="65"/>
+                <TableColumn fx:id="colVentaFecha" text="Fecha" prefWidth="110"/>
+                <TableColumn fx:id="colComprador" text="Comprador" prefWidth="200"/>
+                <TableColumn fx:id="colAnimales" text="Animales" prefWidth="100"/>
+                <TableColumn fx:id="colVentaTotal" text="Total" prefWidth="120"/>
+            </columns>
+        </TableView>
+        <Label fx:id="mensaje" wrapText="true" styleClass="muted"/>
+    </VBox>
+</VBox>

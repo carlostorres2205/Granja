@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.granja.Controller.UsuariosController" spacing="20">
+    <VBox spacing="10" styleClass="info-card">
+        <Label text="Administrar usuarios" styleClass="section-title"/>
+        <Label text="Crea una cuenta o selecciona una existente para actualizarla." wrapText="true" styleClass="muted"/>
+        <Label text="Administrador: todos los módulos e historial. Encargado: registros y reportes. Trabajador: registros y correcciones; sin reportes ni usuarios." wrapText="true" styleClass="muted"/>
+        <Label text="Nombre"/><TextField fx:id="nombre" promptText="Nombre de la persona"/>
+        <Label text="Usuario"/><TextField fx:id="usuario" promptText="Usuario para iniciar sesión"/>
+        <Label text="Rol"/><ComboBox fx:id="rol" maxWidth="Infinity"/>
+        <CheckBox fx:id="activo" text="Cuenta activa"/>
+        <Label text="Contraseña"/><PasswordField fx:id="clave" promptText="Mínimo 8 caracteres"/>
+        <Label text="Confirmar contraseña"/><PasswordField fx:id="confirmar"/>
+        <Label text="Al actualizar una cuenta, deja las contraseñas vacías para conservar la actual." wrapText="true" styleClass="muted"/>
+        <HBox spacing="10">
+            <Button text="Crear usuario" onAction="#crear" styleClass="primary-button"/>
+            <Button text="Actualizar seleccionado" onAction="#modificar" styleClass="secondary-button"/>
+            <Button text="Limpiar" onAction="#limpiar" styleClass="secondary-button"/>
+        </HBox>
+        <Label fx:id="mensaje" wrapText="true" styleClass="error"/>
+    </VBox>
+    <VBox spacing="10" styleClass="info-card">
+        <Label text="Cuentas registradas" styleClass="section-title"/>
+        <TableView fx:id="tabla" prefHeight="300">
+            <columns>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="190"/>
+                <TableColumn fx:id="colUsuario" text="Usuario" prefWidth="150"/>
+                <TableColumn fx:id="colRol" text="Rol" prefWidth="160"/>
+                <TableColumn fx:id="colEstado" text="Estado" prefWidth="100"/>
+            </columns>
+        </TableView>
+        <Button text="Actualizar lista" onAction="#actualizar" styleClass="secondary-button"/>
+    </VBox>
+    <VBox spacing="10" styleClass="info-card">
+        <Label text="Historial de cambios" styleClass="section-title"/>
+        <Label text="Últimos 300 cambios desde que se activó la auditoría." styleClass="muted"/>
+        <TableView fx:id="auditoria" prefHeight="300">
+            <columns>
+                <TableColumn fx:id="colFechaCambio" text="Fecha" prefWidth="155"/>
+                <TableColumn fx:id="colActor" text="Usuario" prefWidth="140"/>
+                <TableColumn fx:id="colTabla" text="Sección" prefWidth="180"/>
+                <TableColumn fx:id="colRegistro" text="Registro" prefWidth="110"/>
+                <TableColumn fx:id="colOperacion" text="Acción" prefWidth="100"/>
+            </columns>
+        </TableView>
+        <Button text="Actualizar historial" onAction="#actualizarAuditoria" styleClass="secondary-button"/>
+        <Label fx:id="mensajeAuditoria" wrapText="true" styleClass="muted"/>
+    </VBox>
+</VBox>

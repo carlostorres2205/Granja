@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.granja.Controller.PrincipalController" styleClass="app-root">
+    <left>
+        <VBox prefWidth="235" spacing="5" styleClass="sidebar">
+            <padding><Insets top="30" right="18" bottom="22" left="18"/></padding>
+            <Label text="●  GRANJA" styleClass="brand"/>
+            <Label text="GESTIÓN GANADERA" styleClass="brand-sub"/>
+            <Region prefHeight="26"/>
+            <Label text="MENÚ PRINCIPAL" styleClass="nav-label"/>
+            <Button text="Inicio" userData="Inicio" onAction="#navegar" styleClass="nav-button"/>
+            <Button text="Animales y lotes" userData="Animales y lotes" onAction="#navegar" styleClass="nav-button"/>
+            <Button text="Pesajes y engorde" userData="Pesajes y engorde" onAction="#navegar" styleClass="nav-button"/>
+            <Button text="Reproducción" userData="Reproducción" onAction="#navegar" styleClass="nav-button"/>
+            <Button text="Salud" userData="Salud" onAction="#navegar" styleClass="nav-button"/>
+            <Button text="Potreros y corrales" userData="Potreros y corrales" onAction="#navegar" styleClass="nav-button"/>
+            <Button text="Inventario y alimentación" userData="Inventario y alimentación" onAction="#navegar" styleClass="nav-button"/>
+            <Button text="Finanzas y ventas" userData="Finanzas y ventas" onAction="#navegar" styleClass="nav-button"/>
+            <Button fx:id="reportesBoton" text="Reportes" userData="Reportes" onAction="#navegar" styleClass="nav-button"/>
+            <Button fx:id="usuariosBoton" text="Usuarios" userData="Usuarios" onAction="#navegar" styleClass="nav-button"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="←  Cerrar sesión" onAction="#cerrarSesion" styleClass="nav-button"/>
+        </VBox>
+    </left>
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-scroll">
+            <VBox spacing="24" styleClass="content">
+                <padding><Insets top="38" right="42" bottom="42" left="42"/></padding>
+                <Label text="TU ESPACIO DE TRABAJO" styleClass="eyebrow"/>
+                <VBox spacing="6">
+                    <Label fx:id="titulo" text="Bienvenido a tu granja" styleClass="page-title" wrapText="true"/>
+                    <Label fx:id="descripcion" text="Todo lo importante, en un solo lugar." styleClass="muted" wrapText="true"/>
+                </VBox>
+                <VBox fx:id="inicio" spacing="24">
+                    <VBox spacing="10" styleClass="welcome-card">
+                        <Label text="UN BUEN DÍA COMIENZA AQUÍ" styleClass="eyebrow"/>
+                        <Label text="Tu granja, organizada" styleClass="section-title"/>
+                        <Label text="Consulta el ganado, sigue su crecimiento y mantén al día las actividades de la granja." styleClass="muted" wrapText="true"/>
+                    </VBox>
+                    <Label text="Accesos rápidos" styleClass="section-title"/>
+                    <FlowPane hgap="16" vgap="16">
+                        <Button text="Animales y lotes&#10;Consulta tu ganado  →" userData="Animales y lotes" onAction="#navegar" styleClass="quick-card"/>
+                        <Button text="Pesajes y engorde&#10;Sigue su crecimiento  →" userData="Pesajes y engorde" onAction="#navegar" styleClass="quick-card"/>
+                        <Button text="Reproducción&#10;Consulta los eventos  →" userData="Reproducción" onAction="#navegar" styleClass="quick-card"/>
+                        <Button text="Salud&#10;Cuida de tus animales  →" userData="Salud" onAction="#navegar" styleClass="quick-card"/>
+                    </FlowPane>
+                </VBox>
+                <VBox fx:id="animalContainer" visible="false" managed="false"/>
+                <VBox fx:id="pesajeContainer" visible="false" managed="false"/>
+                <VBox fx:id="reproduccionContainer" visible="false" managed="false"/>
+                <VBox fx:id="saludContainer" visible="false" managed="false"/>
+                <VBox fx:id="organizacionContainer" visible="false" managed="false"/>
+                <VBox fx:id="inventarioContainer" visible="false" managed="false"/>
+                <VBox fx:id="finanzasContainer" visible="false" managed="false"/>
+                <VBox fx:id="reporteContainer" visible="false" managed="false"/>
+                <VBox fx:id="usuariosContainer" visible="false" managed="false"/>
+                <VBox fx:id="modulo" visible="false" managed="false" spacing="14" styleClass="info-card">
+                    <Label text="MÓDULO EN PREPARACIÓN" styleClass="eyebrow"/>
+                    <Label fx:id="nombreModulo" styleClass="section-title"/>
+                    <Label fx:id="detalleModulo" styleClass="muted" wrapText="true"/>
+                    <Button text="Volver al inicio" userData="Inicio" onAction="#navegar" styleClass="secondary-button"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

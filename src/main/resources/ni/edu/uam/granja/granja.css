@@ -1,0 +1,30 @@
+.root { -fx-font-family: "Segoe UI"; -fx-font-size: 14px; -fx-text-fill: #352e28; }
+.login-root, .app-root, .login-main, .content-scroll, .content-scroll > .viewport { -fx-background-color: #f6f2eb; }
+.login-aside { -fx-background-color: #586451; }
+.hero { -fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #fff9ef; }
+.aside-copy { -fx-font-size: 16px; -fx-text-fill: #e5e8dc; }
+.eyebrow-light, .aside-footer { -fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #e5e8dc; }
+.eyebrow { -fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #7b735e; }
+.page-title { -fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: #352e28; }
+.section-title { -fx-font-size: 19px; -fx-font-weight: bold; -fx-text-fill: #3f3a30; }
+.muted { -fx-font-size: 14px; -fx-text-fill: #716b60; }
+.field-label { -fx-font-weight: bold; -fx-text-fill: #4d463d; }
+.text-field, .password-field { -fx-background-color: #fffdfa; -fx-border-color: #d8cfc0; -fx-border-radius: 7; -fx-background-radius: 7; -fx-padding: 12; }
+.text-field:focused, .password-field:focused { -fx-border-color: #78866c; -fx-border-width: 2; }
+.primary-button, .secondary-button { -fx-cursor: hand; -fx-background-radius: 7; -fx-padding: 13 20; -fx-font-weight: bold; }
+.primary-button { -fx-background-color: #68765d; -fx-text-fill: white; }
+.primary-button:hover { -fx-background-color: #53634b; }
+.secondary-button { -fx-background-color: #e6e8de; -fx-text-fill: #45533f; }
+.error { -fx-text-fill: #a54b40; }
+.notice { -fx-text-fill: #766b5e; -fx-font-size: 12px; -fx-padding: 10 0 0 0; }
+.sidebar { -fx-background-color: #495845; }
+.brand { -fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #fffaf0; }
+.brand-sub, .nav-label { -fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #d0d9c8; }
+.nav-button { -fx-background-color: transparent; -fx-text-fill: #f2f1e9; -fx-alignment: CENTER_LEFT; -fx-max-width: infinity; -fx-padding: 9 10; -fx-background-radius: 6; -fx-cursor: hand; }
+.nav-button:hover, .nav-button:focused { -fx-background-color: #63735c; }
+.content-scroll { -fx-background: #f6f2eb; -fx-border-color: transparent; }
+.content { -fx-background-color: #f6f2eb; }
+.welcome-card { -fx-background-color: #e7eadf; -fx-background-radius: 12; -fx-padding: 25; }
+.info-card { -fx-background-color: #fffdfa; -fx-background-radius: 12; -fx-padding: 24; -fx-border-color: #e8e0d4; -fx-border-radius: 12; }
+.quick-card { -fx-background-color: #fffdfa; -fx-border-color: #e8e0d4; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 22; -fx-min-width: 210; -fx-min-height: 100; -fx-alignment: CENTER_LEFT; -fx-text-fill: #45533f; -fx-font-weight: bold; -fx-cursor: hand; }
+.quick-card:hover, .quick-card:focused { -fx-border-color: #8d9c82; -fx-background-color: #f3f5ee; }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ni.edu.uam.granja.Controller.AnimalController" spacing="20">
+    <VBox spacing="12" styleClass="info-card">
+        <Label text="Registrar animal" styleClass="section-title"/>
+        <Label text="Los campos con * son obligatorios." styleClass="muted"/>
+        <GridPane hgap="14" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="50"/>
+                <ColumnConstraints percentWidth="50"/>
+            </columnConstraints>
+            <Label text="Número de arete *" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Label text="Tipo de animal *" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <TextField fx:id="arete" promptText="Ej. 001" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <ComboBox fx:id="tipoAnimal" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Label text="Sexo *" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <Label text="Raza" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <ComboBox fx:id="sexo" maxWidth="Infinity" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <TextField fx:id="raza" promptText="Opcional" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <Label text="Fecha de nacimiento" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+            <Label text="Fecha de ingreso *" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+            <DatePicker fx:id="nacimiento" maxWidth="Infinity" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+            <DatePicker fx:id="ingreso" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+            <Label text="Origen *" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+            <Label text="Peso inicial (kg)" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+            <ComboBox fx:id="origen" maxWidth="Infinity" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+            <TextField fx:id="peso" promptText="Ej. 220.5" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+        </GridPane>
+        <HBox spacing="12" alignment="CENTER_LEFT">
+            <Button text="Guardar animal" onAction="#guardar" styleClass="primary-button"/>
+            <Button text="Corregir seleccionado" onAction="#corregir" styleClass="secondary-button"/>
+            <Button text="Nuevo / limpiar" onAction="#nuevo" styleClass="secondary-button"/>
+            <Label fx:id="mensaje" wrapText="true" styleClass="muted"/>
+        </HBox>
+    </VBox>
+    <VBox spacing="12" styleClass="info-card">
+        <HBox alignment="CENTER_LEFT" spacing="14">
+            <Label text="Animales registrados" styleClass="section-title"/>
+            <Button text="Actualizar lista" onAction="#actualizar" styleClass="secondary-button"/>
+        </HBox>
+        <TableView fx:id="tabla" prefHeight="300">
+            <placeholder><Label text="Aún no hay animales registrados."/></placeholder>
+            <columns>
+                <TableColumn fx:id="colArete" text="Arete" prefWidth="100"/>
+                <TableColumn fx:id="colNombre" text="Tipo de animal" prefWidth="130"/>
+                <TableColumn fx:id="colSexo" text="Sexo" prefWidth="85"/>
+                <TableColumn fx:id="colRaza" text="Raza" prefWidth="125"/>
+                <TableColumn fx:id="colIngreso" text="Ingreso" prefWidth="110"/>
+                <TableColumn fx:id="colEstado" text="Estado" prefWidth="100"/>
+            </columns>
+        </TableView>
+        <Label text="Registrar baja por fallecimiento" styleClass="section-title"/>
+        <Label text="Selecciona un animal activo en la tabla, indica la fecha y el motivo." wrapText="true" styleClass="muted"/>
+        <DatePicker fx:id="fechaBaja"/>
+        <TextField fx:id="motivoBaja" promptText="Motivo de la baja"/>
+        <Button text="Registrar baja" onAction="#registrarBaja" styleClass="secondary-button"/>
+    </VBox>
+</VBox>

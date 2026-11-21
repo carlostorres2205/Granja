@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.granja.Controller.SaludController" spacing="20">
+    <VBox spacing="12" styleClass="info-card">
+        <Label text="Registrar evento sanitario" styleClass="section-title"/>
+        <Label text="Animal *"/><ComboBox fx:id="animal" maxWidth="Infinity" promptText="Selecciona un animal"/>
+        <HBox spacing="16">
+            <VBox spacing="8" HBox.hgrow="ALWAYS"><Label text="Tipo *"/><ComboBox fx:id="tipo" maxWidth="Infinity"/></VBox>
+            <VBox spacing="8" HBox.hgrow="ALWAYS"><Label text="Fecha *"/><DatePicker fx:id="fecha" maxWidth="Infinity"/></VBox>
+        </HBox>
+        <Label text="Motivo o descripción *"/><TextField fx:id="descripcion" promptText="Ej. Vacunación anual"/>
+        <HBox spacing="16">
+            <VBox spacing="8" HBox.hgrow="ALWAYS"><Label text="Producto aplicado"/><TextField fx:id="producto" promptText="Opcional"/></VBox>
+            <VBox spacing="8" HBox.hgrow="ALWAYS"><Label text="Dosis"/><TextField fx:id="dosis" promptText="Opcional"/></VBox>
+        </HBox>
+        <Label text="Medicamento del inventario (opcional)"/>
+        <ComboBox fx:id="medicamento" maxWidth="Infinity" promptText="Selecciona el medicamento para descontarlo"/>
+        <TextField fx:id="cantidadMedicamento" promptText="Cantidad a descontar en la unidad del inventario"/>
+        <Button text="Actualizar medicamentos" onAction="#actualizarMedicamentos" styleClass="secondary-button"/>
+        <HBox spacing="16">
+            <VBox spacing="8" HBox.hgrow="ALWAYS"><Label text="Próxima revisión"/><DatePicker fx:id="proxima" maxWidth="Infinity"/></VBox>
+            <VBox spacing="8" HBox.hgrow="ALWAYS"><Label text="Fin del período de retiro"/><DatePicker fx:id="retiro" maxWidth="Infinity"/></VBox>
+        </HBox>
+        <Label text="Observaciones"/><TextArea fx:id="notas" prefRowCount="2" wrapText="true"/>
+        <Button text="Guardar evento" onAction="#guardar" styleClass="primary-button"/>
+        <Label fx:id="mensaje" wrapText="true" styleClass="muted"/>
+    </VBox>
+    <VBox spacing="12" styleClass="info-card">
+        <Label text="Seguimiento" styleClass="section-title"/>
+        <Label fx:id="aviso" wrapText="true" styleClass="muted"/>
+        <Button text="Actualizar avisos" onAction="#actualizarAvisos" styleClass="secondary-button"/>
+        <Label text="Historial del animal seleccionado" styleClass="section-title"/>
+        <Button text="Actualizar historial" onAction="#actualizarHistorial" styleClass="secondary-button"/>
+        <TableView fx:id="tabla" prefHeight="300">
+            <placeholder><Label text="No hay eventos para mostrar."/></placeholder>
+            <columns>
+                <TableColumn fx:id="colFecha" text="Fecha" prefWidth="100"/>
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="125"/>
+                <TableColumn fx:id="colDescripcion" text="Descripción y producto" prefWidth="260"/>
+                <TableColumn fx:id="colDosis" text="Dosis" prefWidth="90"/>
+                <TableColumn fx:id="colProxima" text="Próxima" prefWidth="105"/>
+                <TableColumn fx:id="colRetiro" text="Fin retiro" prefWidth="105"/>
+            </columns>
+        </TableView>
+    </VBox>
+</VBox>

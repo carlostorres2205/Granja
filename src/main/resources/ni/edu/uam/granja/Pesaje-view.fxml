@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ni.edu.uam.granja.Controller.PesajeController" spacing="20">
+    <VBox spacing="12" styleClass="info-card">
+        <Label text="Registrar pesaje" styleClass="section-title"/>
+        <Label text="Selecciona un animal y registra su peso en kilogramos." styleClass="muted" wrapText="true"/>
+        <Label text="Animal *"/>
+        <ComboBox fx:id="animal" promptText="Selecciona un animal por su arete" maxWidth="Infinity"/>
+        <HBox spacing="16">
+            <VBox spacing="8" HBox.hgrow="ALWAYS">
+                <Label text="Fecha *"/>
+                <DatePicker fx:id="fecha" maxWidth="Infinity"/>
+            </VBox>
+            <VBox spacing="8" HBox.hgrow="ALWAYS">
+                <Label text="Peso (kg) *"/>
+                <TextField fx:id="peso" promptText="Ej. 230.5"/>
+            </VBox>
+        </HBox>
+        <Label text="Observaciones"/>
+        <TextArea fx:id="observaciones" promptText="Opcional" prefRowCount="2" wrapText="true"/>
+        <Button text="Guardar pesaje" onAction="#guardar" styleClass="primary-button"/>
+        <Button text="Corregir pesaje seleccionado" onAction="#corregir" styleClass="secondary-button"/>
+        <Label fx:id="mensaje" wrapText="true" styleClass="muted"/>
+    </VBox>
+    <VBox spacing="12" styleClass="info-card">
+        <Label text="Historial de pesajes" styleClass="section-title"/>
+        <Label fx:id="resumen" wrapText="true" styleClass="muted"/>
+        <Button text="Actualizar historial" onAction="#actualizarHistorial" styleClass="secondary-button"/>
+        <TableView fx:id="tabla" prefHeight="260">
+            <placeholder><Label text="No hay pesajes para mostrar."/></placeholder>
+            <columns>
+                <TableColumn fx:id="colFecha" text="Fecha" prefWidth="140"/>
+                <TableColumn fx:id="colPeso" text="Peso (kg)" prefWidth="120"/>
+                <TableColumn fx:id="colObservaciones" text="Observaciones" prefWidth="340"/>
+            </columns>
+        </TableView>
+    </VBox>
+</VBox>

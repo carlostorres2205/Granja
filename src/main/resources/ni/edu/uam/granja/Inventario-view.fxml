@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.granja.Controller.InventarioController" spacing="20">
+    <VBox spacing="10" styleClass="info-card">
+        <Label text="Crear insumo" styleClass="section-title"/>
+        <TextField fx:id="nombre" promptText="Nombre del producto"/>
+        <ComboBox fx:id="categoria" maxWidth="Infinity"/>
+        <TextField fx:id="unidad" promptText="Unidad: kg, litro, unidad..."/>
+        <TextField fx:id="minimo" promptText="Cantidad mínima (opcional)"/>
+        <Label text="Vencimiento (opcional)"/><DatePicker fx:id="vencimiento"/>
+        <Button text="Guardar insumo" onAction="#crear" styleClass="primary-button"/>
+    </VBox>
+    <VBox spacing="10" styleClass="info-card">
+        <Label text="Entrada o salida de inventario" styleClass="section-title"/>
+        <ComboBox fx:id="insumo" maxWidth="Infinity" promptText="Selecciona un insumo"/>
+        <ComboBox fx:id="tipoMovimiento" maxWidth="Infinity"/>
+        <TextField fx:id="cantidad" promptText="Cantidad"/>
+        <Button text="Guardar movimiento" onAction="#mover" styleClass="primary-button"/>
+        <Label text="Corregir existencia" styleClass="section-title"/>
+        <Label text="Selecciona el insumo de arriba. El ajuste conservará un registro del cambio." wrapText="true" styleClass="muted"/>
+        <TextField fx:id="existenciaNueva" promptText="Existencia real contada"/>
+        <TextField fx:id="motivoAjuste" promptText="Motivo de la corrección"/>
+        <Button text="Guardar ajuste" onAction="#ajustar" styleClass="secondary-button"/>
+    </VBox>
+    <VBox spacing="10" styleClass="info-card">
+        <Label text="Alimentación por lote" styleClass="section-title"/>
+        <ComboBox fx:id="lote" maxWidth="Infinity" promptText="Selecciona un lote"/>
+        <ComboBox fx:id="alimento" maxWidth="Infinity" promptText="Selecciona un alimento o suplemento"/>
+        <DatePicker fx:id="fechaAlimento"/>
+        <TextField fx:id="cantidadAlimento" promptText="Cantidad entregada"/>
+        <Button text="Registrar alimentación" onAction="#alimentar" styleClass="primary-button"/>
+    </VBox>
+    <VBox spacing="10" styleClass="info-card">
+        <Label text="Existencias" styleClass="section-title"/>
+        <Label fx:id="alertas" styleClass="muted"/>
+        <Button text="Actualizar lista" onAction="#actualizar" styleClass="secondary-button"/>
+        <TableView fx:id="tabla" prefHeight="280">
+            <columns>
+                <TableColumn fx:id="colNombre" text="Insumo" prefWidth="190"/>
+                <TableColumn fx:id="colCategoria" text="Categoría" prefWidth="120"/>
+                <TableColumn fx:id="colExistencia" text="Existencia" prefWidth="130"/>
+                <TableColumn fx:id="colMinimo" text="Mínimo" prefWidth="100"/>
+                <TableColumn fx:id="colVencimiento" text="Vencimiento" prefWidth="120"/>
+            </columns>
+        </TableView>
+        <Label fx:id="mensaje" wrapText="true" styleClass="muted"/>
+    </VBox>
+</VBox>

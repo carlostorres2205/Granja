@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.granja.Controller.LoginController" styleClass="login-root">
+    <VBox alignment="CENTER_LEFT" spacing="20" prefWidth="440" styleClass="login-aside">
+        <padding><Insets top="55" right="55" bottom="55" left="55"/></padding>
+        <Label text="GRANJA  /  GESTIÓN GANADERA" styleClass="eyebrow-light" wrapText="true"/>
+        <Region VBox.vgrow="ALWAYS"/>
+        <Label text="Cuidar de tu granja,&#10;con claridad." styleClass="hero" wrapText="true"/>
+        <Label text="Un espacio sencillo para acompañarte en el día a día de tu ganado." styleClass="aside-copy" wrapText="true"/>
+        <Region VBox.vgrow="ALWAYS"/>
+        <Label text="ENGORDE  ·  REPRODUCCIÓN  ·  BIENESTAR" styleClass="aside-footer" wrapText="true"/>
+    </VBox>
+    <VBox alignment="CENTER" HBox.hgrow="ALWAYS" styleClass="login-main">
+        <VBox maxWidth="360" spacing="14">
+            <Label text="BIENVENIDO" styleClass="eyebrow"/>
+            <Label fx:id="tituloLogin" text="Inicia sesión" styleClass="page-title"/>
+            <Label fx:id="ayudaLogin" text="Ingresa tus datos para entrar a la aplicación." styleClass="muted" wrapText="true"/>
+            <Region prefHeight="16"/>
+            <VBox fx:id="configuracionInicial" spacing="8" visible="false" managed="false">
+                <Label text="Nombre del administrador" styleClass="field-label"/>
+                <TextField fx:id="nombre" promptText="Tu nombre"/>
+            </VBox>
+            <Label text="Usuario" styleClass="field-label"/>
+            <TextField fx:id="usuario" promptText="Escribe tu usuario" accessibleText="Usuario"/>
+            <Label text="Contraseña" styleClass="field-label"/>
+            <PasswordField fx:id="contrasena" promptText="Escribe tu contraseña" accessibleText="Contraseña" onAction="#entrar"/>
+            <VBox fx:id="confirmacionInicial" spacing="8" visible="false" managed="false">
+                <Label text="Confirmar contraseña" styleClass="field-label"/>
+                <PasswordField fx:id="confirmar" promptText="Repite la contraseña" onAction="#entrar"/>
+                <Label text="Usa al menos 8 caracteres." styleClass="notice"/>
+            </VBox>
+            <Label fx:id="mensaje" styleClass="error" wrapText="true"/>
+            <Button fx:id="botonEntrar" text="Entrar a mi granja  →" onAction="#entrar" maxWidth="Infinity" styleClass="primary-button"/>
+        </VBox>
+    </VBox>
+</HBox>
